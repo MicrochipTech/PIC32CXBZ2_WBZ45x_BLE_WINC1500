@@ -1,0 +1,14 @@
+configName: default
+folderName: test3
+format_version: v1.0
+frameworkPath: D:\SVN_Repo\mcc_mhc
+processor: WBZ451
+projectName: test3
+settings:
+  PackageFilter: aws_cloud;bsp;core;crypto;cryptoauthlib;cryptoauthlib_apps;csp;csp_apps_pic32cm_le_ls;csp_apps_pic32cm_mc00;csp_apps_pic32mk;csp_apps_pic32mm;csp_apps_pic32mx;csp_apps_pic32mz_da;csp_apps_pic32mz_ef;csp_apps_pic32mz_w1;csp_apps_sam_9x60;csp_apps_sam_a5d2;csp_apps_sam_c20_c21;csp_apps_sam_d10;csp_apps_sam_d11;csp_apps_sam_d20;csp_apps_sam_d21_da1;csp_apps_sam_d5x_e5x;csp_apps_sam_e70_s70_v70_v71;csp_apps_sam_g55;csp_apps_sam_ha1;csp_apps_sam_l10_l11;csp_apps_sam_l21;csp_apps_sam_l22;csp_apps_sam_rh71;Devices;dev_packs;gfx;gfx_apps;gfx_apps_sam_d5x_e5x;harmony-services;quick_docs;reference_apps;wireless_apps_pic32mzw1_wfi32e01;wireless_apps_winc1500;wireless_ble;wireless_pic32cxbz_wbz;wireless_system_pic32mzw1_wfi32e01;wireless_wifi;wireless_zigbee
+  FORCE_OPTIMIZATION: 'false'
+  GENERATE_BACKUP: 'true'
+  TRUSTZONE: 'false'
+  CMSISPath: .\dev_packs\arm\CMSIS\5.8.0
+  MERGE_STRATEGY: USER_ALL
+  DFPPath: .\dev_packs\Microchip\PIC32CX-BZ_DFP\1.0.80\WBZ451\atdf\WBZ451.atdf
