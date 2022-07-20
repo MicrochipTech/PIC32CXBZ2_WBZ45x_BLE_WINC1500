@@ -51,10 +51,6 @@ This package explains how to interface a WINC1500 device to a WBZ45x module so t
    1. [Software Setup](03_wbz45x_winc1500_wifiProv/README.md#step4)
    1. [Harmony MCC Configuration](03_wbz45x_winc1500_wifiProv/README.md#step5)
    1. [Run the demo](03_wbz45x_winc1500_wifiProv/README.md#step6)
-
-<a href="#top">Back to top</a>
-
-<!--- 
 1. <font size="6">[MQTT Client Chat Demo](04_wbz45x_winc1500_mqtt/README.md#top)</font>
    1. [Introduction](04_wbz45x_winc1500_mqtt/README.md#step1)
    1. [Bill of materials](04_wbz45x_winc1500_mqtt/README.md#step2)
@@ -62,6 +58,6 @@ This package explains how to interface a WINC1500 device to a WBZ45x module so t
    1. [Software Setup](04_wbz45x_winc1500_mqtt/README.md#step4)
    1. [Harmony MCC Configuration](04_wbz45x_winc1500_mqtt/README.md#step5)
    1. [Run the demo](04_wbz45x_winc1500_mqtt/README.md#step6)
---->
 
 
+<a href="#top">Back to top</a>

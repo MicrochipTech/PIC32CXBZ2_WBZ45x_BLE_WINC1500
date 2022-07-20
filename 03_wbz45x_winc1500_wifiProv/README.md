@@ -44,6 +44,7 @@ This application shows how a user can use the WBZ451's BLE to send the target A
 |[WINC1500 Xplained Pro](https://www.microchip.com/en-us/product/ATWINC1500)|1|
 |[XPRO-ADAPTER  Click](https://www.mikroe.com/xpro-adapter-click)|1|
 |Apple® iPhone|1|
+|Wi-Fi Access Point|1|
 
 ## 3. Hardware Setup<a name="step3">
 
