@@ -92,14 +92,14 @@ This project has been verified to work with the following versions of software t
 
 - MPLAB X IDE v6.00
 - XC32 Compiler v4.10
-- MPLAB® Code Configurator v5.1.9
+- MPLAB® Code Configurator v5.1.17
 - PIC32CX-BZ\_DFP v1.0.107
 - MCC Harmony
-  - csp version: v3.11.0
-  - core version: v3.10.0
+  - csp version: v3.13.1
+  - core version: v3.11.1
   - wireless\_wifi version: v3.6.1
-  - dev\_packs version: v3.11.2
-  - CMSIS-FreeRTOS version: v10.3.1
+  - dev\_packs version: v3.13.1
+  - CMSIS-FreeRTOS version: v10.4.6
 
 Refer Project Manifest present in harmony-manifest-success.yml under the project folder *firmware\src\config\default\harmony-manifest-success.yml* for more details
 
