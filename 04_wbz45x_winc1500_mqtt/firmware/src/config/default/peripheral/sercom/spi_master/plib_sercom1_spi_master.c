@@ -172,13 +172,16 @@ bool SERCOM1_SPI_TransferSetup(SPI_TRANSFER_SETUP *setup, uint32_t spiSourceCloc
 
     if(setup != NULL)
     {
-        if (setup->clockFrequency == 0)
-        {
-            setup->clockFrequency = 1000000;
-        }
         if (setup->clockFrequency <= spiSourceClock/2U)
         {
-            baudValue = (spiSourceClock/(2U*(setup->clockFrequency))) - 1U;
+            if (setup->clockFrequency == 0)
+            {
+                baudValue = SERCOM1_SPIM_BAUD_VALUE;
+            }
+            else
+            {
+                baudValue = (spiSourceClock/(2U*(setup->clockFrequency))) - 1U;
+            }
 
             /* Set the lowest possible baud */
             if (baudValue >= 255U)
