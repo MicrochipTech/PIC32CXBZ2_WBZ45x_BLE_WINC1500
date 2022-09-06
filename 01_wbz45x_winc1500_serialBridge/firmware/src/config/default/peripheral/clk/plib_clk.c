@@ -57,7 +57,7 @@
 #include "device.h"
 #include "plib_clk.h"
 
-#define CLK_READY_RETRIES  8000
+#define CLK_READY_RETRIES  8000U
 #define BTZB_XTAL_NOT_READY ((BTZBSYS_REGS->BTZBSYS_SUBSYS_STATUS_REG1 \
                             & BTZBSYS_SUBSYS_STATUS_REG1_xtal_ready_out_Msk) \
                             != BTZBSYS_SUBSYS_STATUS_REG1_xtal_ready_out_Msk)
@@ -93,10 +93,13 @@
 void CLK_Initialize( void )
 {
     //check CLDO ready
-    while ((CFG_REGS->CFG_MISCSTAT & CFG_MISCSTAT_CLDORDY_Msk) == 0);    
+    while ((CFG_REGS->CFG_MISCSTAT & CFG_MISCSTAT_CLDORDY_Msk) == 0U)
+	{
+        /* Do Nothing */
+	}		
     
     // wait for xtal_ready      
-    uint32_t clk_ready_tries = 0;
+    uint32_t clk_ready_tries = 0U;
     do
     {
         clk_ready_tries++;
@@ -105,14 +108,17 @@ void CLK_Initialize( void )
     if((clk_ready_tries >= CLK_READY_RETRIES) && BTZB_XTAL_NOT_READY)
     {
         BTZBSYS_REGS->BTZBSYS_SUBSYS_CNTRL_REG1 |=(BTZBSYS_SUBSYS_CNTRL_REG1_subsys_bypass_xtal_ready_Msk);
-        while(BTZB_XTAL_NOT_READY);
+        while(BTZB_XTAL_NOT_READY)
+		{
+			/* Do Nothing */
+		}
     }
        
     // set PLL_enable
-    BLE_REGS->BLE_DPLL_RG2 &= ~(0x02);
+    BLE_REGS->BLE_DPLL_RG2 &= ((uint8_t)~(0x02U));
 
     // wait for PLL Lock
-    clk_ready_tries = 0;
+    clk_ready_tries = 0U;
     do
     {
         clk_ready_tries++;
@@ -121,13 +127,16 @@ void CLK_Initialize( void )
     if((clk_ready_tries >= CLK_READY_RETRIES) && BTZB_PLL_NOT_LOCKED)
     {
         BTZBSYS_REGS->BTZBSYS_SUBSYS_CNTRL_REG1 |= BTZBSYS_SUBSYS_CNTRL_REG1_subsys_bypass_pll_lock_Msk;
-        while(BTZB_PLL_NOT_LOCKED);
+        while(BTZB_PLL_NOT_LOCKED)
+		{
+			/* Do Nothing */
+		}
     }
 
     /* Unlock system for clock configuration */
-    CFG_REGS->CFG_SYSKEY = 0x00000000;
-    CFG_REGS->CFG_SYSKEY = 0xAA996655;
-    CFG_REGS->CFG_SYSKEY = 0x556699AA;
+    CFG_REGS->CFG_SYSKEY = 0x00000000U;
+    CFG_REGS->CFG_SYSKEY = 0xAA996655U;
+    CFG_REGS->CFG_SYSKEY = 0x556699AAU;
 
 
     /* SPLLPWDN     = 0x1     */
@@ -136,7 +145,7 @@ void CLK_Initialize( void )
     /* SPLLPOSTDIV1 = 1 */
     /* SPLLPOSTDIV2 = 0x1 */    
     /* SPLL_BYP     = 0x3     */
-    CRU_REGS->CRU_SPLLCON = 0xc0010108;
+    CRU_REGS->CRU_SPLLCON = 0xc0010108U;
 
 
     /* OSWEN    = SWITCH_COMPLETE    */
@@ -148,15 +157,18 @@ void CLK_Initialize( void )
     /* WAKE2SPD = SELECTED_CLK */
     /* DRMEN    = NO_EFFECT    */
     /* FRCDIV   = DIV_1   */
-    CRU_REGS->CRU_OSCCON = 0x100;
+    CRU_REGS->CRU_OSCCON = 0x100U;
 
     CRU_REGS->CRU_OSCCONSET = CRU_OSCCON_OSWEN_Msk;  /* request oscillator switch to occur */
 
-    while(CRU_REGS->CRU_OSCCON & CRU_OSCCON_OSWEN_Msk);        /* wait for indication of successful clock change before proceeding */
-
+    while((CRU_REGS->CRU_OSCCON & CRU_OSCCON_OSWEN_Msk) != 0U)	/* wait for indication of successful clock change before proceeding */
+    {
+		/* Do Nothing */
+	}
+  
     /* Peripheral Bus 3 is by default enabled, set its divisor */
     /* PBDIV = 10 */
-    CRU_REGS->CRU_PB3DIV = CRU_PB3DIV_PBDIVON_Msk | CRU_PB3DIV_PBDIV(9);
+    CRU_REGS->CRU_PB3DIV = CRU_PB3DIV_PBDIVON_Msk | CRU_PB3DIV_PBDIV(9U);
 
 
 
@@ -167,31 +179,30 @@ void CLK_Initialize( void )
     /* RSLP = false */ 
     /* SIDL = false */ 
     /* RODIV = 0 */
-    CRU_REGS->CRU_REFO1CON = 0x201;
+    CRU_REGS->CRU_REFO1CON = 0x201U;
 
     /* Enable oscillator (ON bit) */
-    CRU_REGS->CRU_REFO1CONSET = 0x00008000;
+    CRU_REGS->CRU_REFO1CONSET = 0x00008000U;
 
 
     /* Peripheral Clock Generators */
-    CFG_REGS->CFG_CFGPCLKGEN1 = 0x9009;
-    CFG_REGS->CFG_CFGPCLKGEN2 = 0x0;
-    CFG_REGS->CFG_CFGPCLKGEN3 = 0x0;
+    CFG_REGS->CFG_CFGPCLKGEN1 = 0x9009U;
+    CFG_REGS->CFG_CFGPCLKGEN2 = 0x0U;
+    CFG_REGS->CFG_CFGPCLKGEN3 = 0x0U;
 
     /* Peripheral Module Disable Configuration */
 
 
-    CFG_REGS->CFG_PMD1 = 0x200001cf;
-    CFG_REGS->CFG_PMD2 = 0xf3000000;
-    CFG_REGS->CFG_PMD3 = 0x7ffc;
+    CFG_REGS->CFG_PMD1 = 0x200001cfU;
+    CFG_REGS->CFG_PMD3 = 0x7ffcU;
 
 
     /* Lock system since done with clock configuration */
-    CFG_REGS->CFG_SYSKEY = 0x33333333;
+    CFG_REGS->CFG_SYSKEY = 0x33333333U;
 
     // Change src_clk source to PLL CLK
-    BTZBSYS_REGS->BTZBSYS_SUBSYS_CNTRL_REG1 |= 0x00000010;
+    BTZBSYS_REGS->BTZBSYS_SUBSYS_CNTRL_REG1 |= 0x00000010U;
 
-    // set bt_en_main_clk[20], bt_pdc_ov[16], zb_en_main_clk[4]
-    BTZBSYS_REGS->BTZBSYS_SUBSYS_CNTRL_REG0 = 0x01100010;
+    // set aclb_reset_n[24]
+    BTZBSYS_REGS->BTZBSYS_SUBSYS_CNTRL_REG0 = 0x01000000U;
 }

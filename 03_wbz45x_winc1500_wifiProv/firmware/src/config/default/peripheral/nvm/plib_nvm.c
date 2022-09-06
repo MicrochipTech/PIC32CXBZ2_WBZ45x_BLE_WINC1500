@@ -48,6 +48,7 @@
 // *****************************************************************************
 
 #include <string.h>
+#include "interrupts.h"
 #include "plib_nvm.h"
 
 /* ************************************************************************** */
@@ -91,9 +92,9 @@ typedef enum
 // *****************************************************************************
 // *****************************************************************************
 
-NVM_CALLBACK nvmCallbackFunc;
+static NVM_CALLBACK nvmCallbackFunc;
 
-uintptr_t nvmContext;
+static uintptr_t nvmContext;
 
 void NVM_CallbackRegister( NVM_CALLBACK callback, uintptr_t context )
 {
@@ -113,9 +114,9 @@ void NVM_InterruptHandler( void )
 static void NVM_WriteUnlockSequence( void )
 {
     // Write the unlock key sequence
-    NVM_REGS->NVM_NVMKEY = 0x0;
-    NVM_REGS->NVM_NVMKEY = NVM_UNLOCK_KEY1;
-    NVM_REGS->NVM_NVMKEY = NVM_UNLOCK_KEY2;
+    NVM_REGS->NVM_NVMKEY = 0x0U;
+    NVM_REGS->NVM_NVMKEY = (uint32_t)NVM_UNLOCK_KEY1;
+    NVM_REGS->NVM_NVMKEY = (uint32_t)NVM_UNLOCK_KEY2;
 }
 
 static void NVM_StartOperationAtAddress( uint32_t address,  NVM_OPERATION_MODE operation )
@@ -172,7 +173,8 @@ void NVM_Initialize( void )
 
 bool NVM_Read( uint32_t *data, uint32_t length, const uint32_t address )
 {
-    memcpy((void *)data, (void *)address, length);
+    const uint32_t *paddress = (uint32_t *)address;
+    (void) memcpy(data, paddress, length);
 
     return true;
 }
@@ -188,10 +190,14 @@ bool NVM_WordWrite( uint32_t data, uint32_t address )
 
 bool NVM_QuadWordWrite( uint32_t *data, uint32_t address )
 {
-   NVM_REGS->NVM_NVMDATA0 = *(data++);
-   NVM_REGS->NVM_NVMDATA1 = *(data++);
-   NVM_REGS->NVM_NVMDATA2 = *(data++);
-   NVM_REGS->NVM_NVMDATA3 = *(data++);
+   NVM_REGS->NVM_NVMDATA0 = *data;
+   data++;
+   NVM_REGS->NVM_NVMDATA1 = *data;
+   data++;
+   NVM_REGS->NVM_NVMDATA2 = *data;
+   data++;
+   NVM_REGS->NVM_NVMDATA3 = *data;
+   data++;
 
    NVM_StartOperationAtAddress( address,  QUAD_WORD_PROGRAM_OPERATION);
 
@@ -222,7 +228,7 @@ NVM_ERROR NVM_ErrorGet( void )
 
 bool NVM_IsBusy( void )
 {
-    return (bool)((NVM_REGS->NVM_NVMCON & NVM_NVMCON_WR_Msk) >> NVM_NVMCON_WR_Pos);
+    return (((NVM_REGS->NVM_NVMCON & NVM_NVMCON_WR_Msk) >> NVM_NVMCON_WR_Pos) != 0U);
 }
 
 void NVM_ProgramFlashWriteProtect( uint32_t laddress, uint32_t haddress )
@@ -231,10 +237,10 @@ void NVM_ProgramFlashWriteProtect( uint32_t laddress, uint32_t haddress )
     __disable_irq();
 
     NVM_WriteUnlockSequence();
-	
-	// Unlock the Program flash Write protect register
+
+    // Unlock the Program flash Write protect register
     NVM_REGS->NVM_NVMPWPLT = NVM_NVMPWPLT_ULOCK_Msk;
-	NVM_REGS->NVM_NVMPWPGTESET = NVM_NVMPWPGTE_ULOCK_Msk;
+    NVM_REGS->NVM_NVMPWPGTESET = NVM_NVMPWPGTE_ULOCK_Msk;
 
     /* Program the address range */
     NVM_REGS->NVM_NVMPWPLT = (laddress & NVM_NVMPWPLT_PWPLT_Msk) | NVM_NVMPWPLT_ULOCK_Msk;
@@ -252,7 +258,33 @@ void NVM_ProgramFlashWriteProtectLock( void )
 
     // Lock the Program flash Write protect register
     NVM_REGS->NVM_NVMPWPLTCLR = NVM_NVMPWPLT_ULOCK_Msk;
-	NVM_REGS->NVM_NVMPWPGTECLR = NVM_NVMPWPGTE_ULOCK_Msk;
+    NVM_REGS->NVM_NVMPWPGTECLR = NVM_NVMPWPGTE_ULOCK_Msk;
+
+    __set_PRIMASK( old_primask );
+}
+
+void NVM_BootFlashWriteProtectUnlock( uint32_t bootFlashPagesMsk )
+{
+    uint32_t old_primask = __get_PRIMASK();
+    __disable_irq();
+
+    NVM_WriteUnlockSequence();
+
+    // Disable erase and write protection on the specified pages in bootFlashPagesMsk
+    NVM_REGS->NVM_NVMLBWPCLR = (bootFlashPagesMsk & (NVM_NVMLBWP_Msk & ~(0x80000000)));
+
+    __set_PRIMASK( old_primask );
+}
+
+void NVM_BootFlashWriteProtectLock( uint32_t bootFlashPagesMsk )
+{
+    uint32_t old_primask = __get_PRIMASK();
+    __disable_irq();
+
+    NVM_WriteUnlockSequence();
+
+    // Enable erase and write protection on the specified pages in bootFlashPagesMsk
+    NVM_REGS->NVM_NVMLBWPSET = (bootFlashPagesMsk & (NVM_NVMLBWP_Msk & ~(0x80000000)));
 
     __set_PRIMASK( old_primask );
 }

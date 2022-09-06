@@ -1,7 +1,7 @@
-/**
- * \brief Instance header file for WBZ451
+/*
+ * Instance header file for WBZ451
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,17 +20,17 @@
  *
  */
 
-/* file generated from device description version 2021-05-04T23:48:40Z */
+/* file generated from device description version 2022-02-28T16:51:20Z */
 #ifndef _BZ45_EIC_INSTANCE_
 #define _BZ45_EIC_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for EIC peripheral ========== */
-#define EIC_EXTINT_NUM                           _UL_(4)    
-#define EIC_GCLK_ID                              _UL_(0)    
-#define EIC_NUMBER_OF_CONFIG_REGS                _UL_(2)    
-#define EIC_NUMBER_OF_DPRESCALER_REGS            _UL_(2)    
-#define EIC_NUMBER_OF_INTERRUPTS                 _UL_(4)    
-#define EIC_INSTANCE_ID                          _UL_(2)    
+#define EIC_EXTINT_NUM                           (4)        
+#define EIC_GCLK_ID                              (0)        
+#define EIC_NUMBER_OF_CONFIG_REGS                (2)        
+#define EIC_NUMBER_OF_DPRESCALER_REGS            (2)        
+#define EIC_NUMBER_OF_INTERRUPTS                 (4)        
+#define EIC_INSTANCE_ID                          (2)        
 
 #endif /* _BZ45_EIC_INSTANCE_ */

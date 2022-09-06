@@ -59,7 +59,7 @@
 typedef void (*pfn_handler_t)(void);
 
 /* Structure defining device vector types */
-typedef struct _H3DeviceVectors
+typedef struct H3DeviceVectorsTag
 {
   /* Stack pointer */
   uint32_t* pvStack;
@@ -117,7 +117,7 @@ typedef struct _H3DeviceVectors
   pfn_handler_t pfnBT_INT1_Handler;                 /* 32 Bluetooth 0 */
   pfn_handler_t pfnARBITER_Handler;                 /* 33 Radio Arbiter */
   pfn_handler_t pfnADC_FAULT_Handler;               /* 34 ADC Fault Interrupt */
-  pfn_handler_t pfnADC_FCC_Handler;                 /* 35 ADC FCC Interrupt */
+  pfn_handler_t pfnADC_EOS_Handler;                 /* 35 ADC EOS Interrupt */
   pfn_handler_t pfnADC_BGVR_RDY_Handler;            /* 36 ADC BGVR Ready */
   pfn_handler_t pfnCLKI_WAKEUP_NMI_Handler;         /* 37 Bluetooth WAKEUP */
   pfn_handler_t pfnBT_LC_Handler;                   /* 38 Bluetooth LC */

@@ -56,7 +56,7 @@
 // ****************************************************************************
 
 /*** FUSERID ***/
-#pragma config USER_ID =      0xffff
+#pragma config USER_ID =      0xffffU
 
 /*** DEVCFG0 ***/
 #pragma config TDOEN =      ON
@@ -126,7 +126,7 @@
 
 
 /*** DEVCFG4 ***/
-#pragma config SOSCCFG =    0x0
+#pragma config SOSCCFG =    0x0U
 #pragma config RTCEVENT_SEL =      ONE_SEC
 #pragma config RTCEVENT_EN =      OFF
 #pragma config VBKP_1KCSEL =      _32K
@@ -141,7 +141,6 @@
 #pragma config DSWDTEN =      OFF
 #pragma config DSEN =    OFF
 #pragma config UVREGROVR =      CONTROLLED
-//#pragma config LPOSCEN =      OFF
 #pragma config RTCNTM_CSEL =      RAW
 
 /*** FBCFG0 ***/
@@ -150,6 +149,7 @@
 
 /*** FCPN0 ***/
 #pragma config CP =      DISABLED
+
 
 
 
@@ -289,6 +289,8 @@ const SYS_TIME_INIT sysTimeInitData =
 
 void SYS_Initialize ( void* data )
 {
+    /* MISRAC 2012 deviation block start */
+    /* MISRA C-2012 Rule 2.2 deviated in this file.  Deviation record ID -  H3_MISRAC_2012_R_2_2_DR_1 */
 
   
     CLK_Initialize();
@@ -297,13 +299,14 @@ void SYS_Initialize ( void* data )
                                     | (PCHE_CHECON_PFMWS(1) | PCHE_CHECON_PREFEN(1));
 
 
+
 	GPIO_Initialize();
 
     SERCOM1_SPI_Initialize();
 
-    EVSYS_Initialize();
-
     SERCOM0_USART_Initialize();
+
+    EVSYS_Initialize();
 
     EIC_Initialize();
 
@@ -324,6 +327,7 @@ void SYS_Initialize ( void* data )
 
     NVIC_Initialize();
 
+    /* MISRAC 2012 deviation block end */
 }
 
 

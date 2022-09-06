@@ -19,7 +19,7 @@ For additional Microchip repos, see: <a href="https://github.com/Microchip-MPLAB
 Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Technical support portal</a> to access our knowledge base, community forums or submit support ticket requests.
 </span></p></b>
 
-## A la carte
+## Contents
 
 1. [Introduction](#step1)
 1. [Bill of materials](#step2)
@@ -64,6 +64,26 @@ This application demonstrates how a user run a MQTT Client using third party Pah
 |8|GND|19|GND|
 |15/16|PA2|9|IRQN (In V2 board, connect to 16)|
 
+- WBZ451 Curiosity board can be connected to WINC1500 Xplained Pro using a [XPRO-ADAPTER  Click](https://www.mikroe.com/xpro-adapter-click) as shown below.\
+![Board](docs/images/Board.PNG)
+  - The jumper settings in XPRO-ADAPTER click board is as shown above figure. Use Jumpers and Jumper wires to connect the header as mentioned in below table.
+
+	|Jumper Connections|
+	| :- |
+	|J3.1 &emsp; to &emsp; J4.1 |
+	|J3.3 &emsp; to &emsp; J1.5 |
+	|J3.5 &emsp; to &emsp; J3.6 |
+	|J3.7 &emsp; to &emsp; J3.8 |
+	|J3.9 &emsp; to &emsp; J3.10|
+	|J3.11&emsp; to &emsp; J3.12|
+	|J4.1 &emsp; to &emsp; J3.1 |
+	|J4.3 &emsp; to &emsp; J4.4 |
+	|J4.6 &emsp; Open |
+	|J4.8 &emsp; Open |
+	|J4.10&emsp; Open |
+	|J4.12&emsp; Open |
+
+
 ## 4. Software Setup<a name="step4">
 
 This project has been verified to work with the following versions of software tools:
@@ -98,12 +118,38 @@ Because Microchip regularly update tools, occasionally issue(s) could be discove
 
 ## 5. Harmony MCC Configuration<a name="step5">
 
-The "MCC - Harmony Project Graph" below depicts the harmony components utilized in this project.
-
+- The "MCC - Harmony Project Graph" below depicts the harmony components utilized in this project.
 ![Harmony Project Graph](docs/images/harmony_project_graph.PNG)
 
-Add the Thirdparty Paho MQTT Software to the project as shown below
+- The system configuration is depicted as follows.\
+![System DEVCFG1](docs/images/Setup_DEVCFG1.PNG)\
+![System PPS](docs/images/Setup_PPS.PNG)
 
+- The EIC configuration is depicted as follows.\
+![EIC](docs/images/EIC.PNG)
+
+- The WINC configuration is depicted as follows.\
+![WINC](docs/images/WINC.PNG)
+
+- The SPI Driver configuration is depicted as follows.\
+![SPI Driver](docs/images/DRV_SPI.PNG)
+
+- The SERCOM1 SPI configuration is depicted as follows.\
+![SERCOM1 SPI](docs/images/SERCOM1_SPI.PNG)
+
+- The SERCOM0 UART configuration is depicted as follows.\
+![SERCOM0 SPI](docs/images/SERCOM0_Uart.PNG)
+
+- The PIN configuration is depicted as follows.\
+![PIN Configuration](docs/images/PinConfig.PNG)
+
+- The BLE Configuration is depicted as follows.\
+![BLE Configuration](docs/images/BLE_Adv_Config.PNG)
+
+- The below figure shows configurations used in custom service component.
+![Custom Service](docs/images/custom_service.PNG)
+
+Add the Thirdparty Paho MQTT Software to the project as shown below\
 ![paho_mqtt](docs/images/paho_mqtt.PNG)
 
 **Note**:\
@@ -112,23 +158,31 @@ It is important to have the porting files "MCHP_winc.c" and "MCHP_winc.h" in the
 ## 6. Run the demo<a name="step6">
 
 - Download the MQTT.fx Third Party Mqtt Client Application and open it on Laptop.
+
 - Connect the MQTT.fx Application to the MQTT Server - broker.hivemq.com with port 1883.\
 ![MQTTfx_1_settings](docs/images/mqtt_fx1_settings.png)\
 ![MQTTfx_1](docs/images/mqtt_fx1.png)
+
 - Make the MQTT.fx Application susbcribe to Topic MCHP/Sample/a.
 ![MQTTfx_1](docs/images/mqtt_fx2.png)
+
 - On startup, WBZ451 will Advertize with local name *wbz451_winc1500_wiifiProv*. Perform [Wi-Fi Provisioning using BLE](../03_wbz45x_winc1500_wifiProv/README.md)
 - After successfully connecting to an access point and obtaining the IP address, the WINC1500 establishes a connection with the specified MQTT Broker.
 - After connecting to MQTT Server, the MQTT Client on the WINC1500 device shall subscribe to Topic MCHP/Sample/b.\
 ![Teraterm_mqtt1](docs/images/mqtt_start.PNG)
+
 - The MQTT Client on the WINC1500 device shall publish the message "Hello" to Topic MCHP/Sample/a.\
 ![Mqtt App Receive](docs/images/mqtt_fx3.png)
+
 - Publish message from MQTT.fx Application on the Topic MCHP/Sample/b.
 ![Mqtt App Publish](docs/images/mqtt_fx4.png)
+
 - The MQTT Client on the WINC1500 device receives the message on the Topic MCHP/Sample/b sent by the MQTT.fx Application running on the laptop.
 ![Mqtt App Publish](docs/images/mqtt_publish_terminal.png)
+
 - Type *Hello from WINC1500* on Tera Term
 ![Mqtt Publish WINC1500](docs/images/mqtt_publish_winc.png)
+
 - The MQTT.fx Application will receive the typed message from WINC1500
 ![Mqtt Subscribe](docs/images/mqtt_fx5.png)
 

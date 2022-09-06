@@ -1,7 +1,7 @@
-/**
- * \brief Instance header file for WBZ451
+/*
+ * Instance header file for WBZ451
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,15 +20,15 @@
  *
  */
 
-/* file generated from device description version 2021-05-04T23:48:40Z */
+/* file generated from device description version 2022-02-28T16:51:20Z */
 #ifndef _BZ45_ADCHS_INSTANCE_
 #define _BZ45_ADCHS_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for ADCHS peripheral ========== */
-#define ADCHS_AIN_8                              _UL_(8)    /* BandGap Reference (internal AN8) */
-#define ADCHS_AIN_9                              _UL_(9)    /* IVref 1.2V (internal AN9) */
-#define ADCHS_AIN_10                             _UL_(10)   /* VBAT/2 (internal AN10) */
-#define ADCHS_AIN_11                             _UL_(11)   /* CTMU Temperature Sensor (internal AN11) */
+#define ADCHS_AIN_8                              (8)        /* BandGap Reference (internal AN8) */
+#define ADCHS_AIN_9                              (9)        /* IVref 1.2V (internal AN9) */
+#define ADCHS_AIN_10                             (10)       /* VBAT/2 (internal AN10) */
+#define ADCHS_AIN_11                             (11)       /* CTMU Temperature Sensor (internal AN11) */
 
 #endif /* _BZ45_ADCHS_INSTANCE_ */

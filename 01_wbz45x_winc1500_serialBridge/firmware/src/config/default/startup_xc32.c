@@ -71,45 +71,16 @@ extern uint32_t __svectors;
 
 extern int main(void);
 
-__STATIC_INLINE void TCM_Disable(void);
-__STATIC_INLINE void TCM_Enable(void);
-__STATIC_INLINE void TCM_Configure(uint32_t tcmSize);
-__STATIC_INLINE void ICache_Enable(void);
-__STATIC_INLINE void DCache_Enable(void);
-
-/** Program CMCC CSIZESW bits for TCM and cache configuration */
-__STATIC_INLINE void TCM_Configure(uint32_t tcmSize)
-{
-    CMCC_REGS->CMCC_CFG = CMCC_CFG_CSIZESW(tcmSize);
-}
-
-/** Enable TCM memory */
-__STATIC_INLINE void  __attribute__((optimize("-O1"))) TCM_Enable(void)
-{
-    /* TCM cannot be enabled or disabled in SAME5x/SAMD5x family*/
-}
-
-/* Disable TCM memory */
-__STATIC_INLINE void  __attribute__((optimize("-O1"))) TCM_Disable(void)
-{
-    /* TCM cannot be enabled or disabled in SAME5x/SAMD5x family*/
-}
-
-__STATIC_INLINE void ICache_Enable(void)
+__STATIC_INLINE void CMCC_Configure(void)
 {
     CMCC_REGS->CMCC_CTRL &= ~(CMCC_CTRL_CEN_Msk);
     while((CMCC_REGS->CMCC_SR & CMCC_SR_CSTS_Msk) == CMCC_SR_CSTS_Msk)
     {
         /*Wait for the operation to complete*/
     }
-    CMCC_REGS->CMCC_CFG |= (CMCC_CFG_DCDIS_Msk);
+    CMCC_REGS->CMCC_CFG = CMCC_CFG_CSIZESW(2U)| CMCC_CFG_DCDIS_Msk;
     CMCC_REGS->CMCC_CTRL = (CMCC_CTRL_CEN_Msk);
 }
-
-__STATIC_INLINE void DCache_Enable(void)
-{
-}
-
 
 #if (__ARM_FP==14) || (__ARM_FP==4)
 
@@ -169,6 +140,9 @@ void __attribute__((optimize("-O1"), section(".text.Reset_Handler"), long_call, 
     /* Enable the FPU if the application is built with -mfloat-abi=softfp or -mfloat-abi=hard */
     FPU_Enable();
 #endif
+
+    /* Configure CMCC */
+    CMCC_Configure();
 
     /* Initialize data after TCM is enabled.
      * Data initialization from the XC32 .dinit template */
