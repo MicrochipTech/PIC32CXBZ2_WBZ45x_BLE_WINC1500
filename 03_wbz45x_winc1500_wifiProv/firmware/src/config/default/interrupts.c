@@ -61,6 +61,7 @@
 // *****************************************************************************
 // *****************************************************************************
 
+/* MISRA C-2012 Rule 8.6 deviated below. Deviation record ID -  H3_MISRAC_2012_R_8_6_DR_1 */
 extern uint32_t _stack;
 extern const H3DeviceVectors exception_table;
 
@@ -76,12 +77,11 @@ void __attribute__((optimize("-O1"),section(".text.Dummy_Handler"),long_call, no
     {
     }
 }
+
+/* MISRAC 2012 deviation block start */
+/* MISRA C-2012 Rule 8.6 deviated 36 times.  Deviation record ID -  H3_MISRAC_2012_R_8_6_DR_1 */
 /* Device vectors list dummy definition*/
-extern void MemoryManagement_Handler   ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void BusFault_Handler           ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void UsageFault_Handler         ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void vPortSVCHandler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void DebugMonitor_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void xPortPendSVHandler         ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void FREQM_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void CHANGE_NOTICE_A_Handler    ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -112,13 +112,14 @@ extern void BT_INT0_Handler            ( void ) __attribute__((weak, alias("Dumm
 extern void BT_INT1_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void ARBITER_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void ADC_FAULT_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void ADC_FCC_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void ADC_EOS_Handler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void ADC_BGVR_RDY_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void CLKI_WAKEUP_NMI_Handler    ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void BT_LC_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void BT_RC_Handler              ( void ) __attribute__((weak, alias("Dummy_Handler")));
 
 
+/* MISRAC 2012 deviation block end */
 
 /* Multiple handlers for vector */
 
@@ -175,7 +176,7 @@ const H3DeviceVectors exception_table=
     .pfnBT_INT1_Handler            = BT_INT1_Handler,
     .pfnARBITER_Handler            = ARBITER_Handler,
     .pfnADC_FAULT_Handler          = ADC_FAULT_Handler,
-    .pfnADC_FCC_Handler            = ADC_FCC_Handler,
+    .pfnADC_EOS_Handler            = ADC_EOS_Handler,
     .pfnADC_BGVR_RDY_Handler       = ADC_BGVR_RDY_Handler,
     .pfnCLKI_WAKEUP_NMI_Handler    = CLKI_WAKEUP_NMI_Handler,
     .pfnBT_LC_Handler              = BT_LC_Handler,

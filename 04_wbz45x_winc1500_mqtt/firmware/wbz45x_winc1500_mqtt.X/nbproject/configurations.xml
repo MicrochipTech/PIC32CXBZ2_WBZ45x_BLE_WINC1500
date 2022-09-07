@@ -329,6 +329,8 @@
             <itemPath>../src/packs/WBZ451_DFP/component/eic.h</itemPath>
             <itemPath>../src/packs/WBZ451_DFP/component/pukcc.h</itemPath>
             <itemPath>../src/packs/WBZ451_DFP/component/dsu.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/component/hmatrixb.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/component/cru.h</itemPath>
           </logicalFolder>
           <logicalFolder name="instance" displayName="instance" projectFiles="true">
             <itemPath>../src/packs/WBZ451_DFP/instance/ramecc.h</itemPath>
@@ -374,6 +376,9 @@
             <itemPath>../src/packs/WBZ451_DFP/instance/pche.h</itemPath>
             <itemPath>../src/packs/WBZ451_DFP/instance/cmcc.h</itemPath>
             <itemPath>../src/packs/WBZ451_DFP/instance/sercom1.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/instance/tcc1.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/instance/tcc0.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/instance/aes.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/WBZ451_DFP/pio/wbz451.h</itemPath>

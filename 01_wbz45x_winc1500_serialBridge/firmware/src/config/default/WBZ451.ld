@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------
  * MPLAB XC32 Compiler -  WBZ451 linker script
  * 
- * Copyright (c) 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+ * Copyright (c) 2022, Microchip Technology Inc. and its subsidiaries ("Microchip")
  * All rights reserved.
  * 
  * This software is developed by Microchip Technology Inc. and its
@@ -85,7 +85,15 @@ ENTRY(__XC32_RESET_HANDLER_NAME)
 #elif (RAM_LENGTH > 0x20000)
 #  error RAM_LENGTH is greater than the max size of 0x20000
 #endif
-  
+#ifndef BKUPRAM_ORIGIN
+#  define BKUPRAM_ORIGIN 0x44014000
+#endif
+#ifndef BKUPRAM_LENGTH
+#  define BKUPRAM_LENGTH 0x2000
+#elif (BKUPRAM_LENGTH > 0x2000)
+#  error BKUPRAM_LENGTH is greater than the max size of 0x2000
+#endif
+
 
 /*************************************************************************
  * Memory-Region Definitions
@@ -97,33 +105,9 @@ MEMORY
   boot_rom (LRX) : ORIGIN = BOOT_ROM_ORIGIN, LENGTH = BOOT_ROM_LENGTH
   rom (LRX) : ORIGIN = ROM_ORIGIN, LENGTH = ROM_LENGTH
   ram (WX!R) : ORIGIN = RAM_ORIGIN, LENGTH = RAM_LENGTH
-  config_D0045F80 : ORIGIN = 0xD0045F80, LENGTH = 0x4
-  config_D0045E80 : ORIGIN = 0xD0045E80, LENGTH = 0x4
-  config_D0045F84 : ORIGIN = 0xD0045F84, LENGTH = 0x4
-  config_D0045F88 : ORIGIN = 0xD0045F88, LENGTH = 0x4
-  config_D0045E8C : ORIGIN = 0xD0045E8C, LENGTH = 0x4
-  config_D0045E90 : ORIGIN = 0xD0045E90, LENGTH = 0x4
-  config_D0045E98 : ORIGIN = 0xD0045E98, LENGTH = 0x4
-  config_D0045E94 : ORIGIN = 0xD0045E94, LENGTH = 0x4
-  config_D0045F98 : ORIGIN = 0xD0045F98, LENGTH = 0x4
-  config_D0045E84 : ORIGIN = 0xD0045E84, LENGTH = 0x4
-  config_D0045E9C : ORIGIN = 0xD0045E9C, LENGTH = 0x4
-  config_D0045EB0 : ORIGIN = 0xD0045EB0, LENGTH = 0x4
-  config_D0045F9C : ORIGIN = 0xD0045F9C, LENGTH = 0x4
-  config_D0045FB0 : ORIGIN = 0xD0045FB0, LENGTH = 0x4
-  config_D0045E88 : ORIGIN = 0xD0045E88, LENGTH = 0x4
-  config_D0045EB4 : ORIGIN = 0xD0045EB4, LENGTH = 0x4
-  config_D0045FB8 : ORIGIN = 0xD0045FB8, LENGTH = 0x4
-  config_D0045FB4 : ORIGIN = 0xD0045FB4, LENGTH = 0x4
-  config_D0045FBC : ORIGIN = 0xD0045FBC, LENGTH = 0x4
-  config_D0045F8C : ORIGIN = 0xD0045F8C, LENGTH = 0x4
-  config_D0045EB8 : ORIGIN = 0xD0045EB8, LENGTH = 0x4
-  config_D0045F90 : ORIGIN = 0xD0045F90, LENGTH = 0x4
-  config_D0045EBC : ORIGIN = 0xD0045EBC, LENGTH = 0x4
-  config_D0045F94 : ORIGIN = 0xD0045F94, LENGTH = 0x4
+  bkupram : ORIGIN = BKUPRAM_ORIGIN, LENGTH = BKUPRAM_LENGTH
 
 }
-
 /*************************************************************************
  * Output region definitions.
  * CODE_REGION defines the output region for .text/.rodata.
@@ -157,78 +141,6 @@ __ram_end = ORIGIN(ram) + LENGTH(ram);
  *************************************************************************/
 SECTIONS
 {
-    .config_D0045F80 : {
-      KEEP(*(.config_D0045F80))
-    } > config_D0045F80
-    .config_D0045E80 : {
-      KEEP(*(.config_D0045E80))
-    } > config_D0045E80
-    .config_D0045F84 : {
-      KEEP(*(.config_D0045F84))
-    } > config_D0045F84
-    .config_D0045F88 : {
-      KEEP(*(.config_D0045F88))
-    } > config_D0045F88
-    .config_D0045E8C : {
-      KEEP(*(.config_D0045E8C))
-    } > config_D0045E8C
-    .config_D0045E90 : {
-      KEEP(*(.config_D0045E90))
-    } > config_D0045E90
-    .config_D0045E98 : {
-      KEEP(*(.config_D0045E98))
-    } > config_D0045E98
-    .config_D0045E94 : {
-      KEEP(*(.config_D0045E94))
-    } > config_D0045E94
-    .config_D0045F98 : {
-      KEEP(*(.config_D0045F98))
-    } > config_D0045F98
-    .config_D0045E84 : {
-      KEEP(*(.config_D0045E84))
-    } > config_D0045E84
-    .config_D0045E9C : {
-      KEEP(*(.config_D0045E9C))
-    } > config_D0045E9C
-    .config_D0045EB0 : {
-      KEEP(*(.config_D0045EB0))
-    } > config_D0045EB0
-    .config_D0045F9C : {
-      KEEP(*(.config_D0045F9C))
-    } > config_D0045F9C
-    .config_D0045FB0 : {
-      KEEP(*(.config_D0045FB0))
-    } > config_D0045FB0
-    .config_D0045E88 : {
-      KEEP(*(.config_D0045E88))
-    } > config_D0045E88
-    .config_D0045EB4 : {
-      KEEP(*(.config_D0045EB4))
-    } > config_D0045EB4
-    .config_D0045FB8 : {
-      KEEP(*(.config_D0045FB8))
-    } > config_D0045FB8
-    .config_D0045FB4 : {
-      KEEP(*(.config_D0045FB4))
-    } > config_D0045FB4
-    .config_D0045FBC : {
-      KEEP(*(.config_D0045FBC))
-    } > config_D0045FBC
-    .config_D0045F8C : {
-      KEEP(*(.config_D0045F8C))
-    } > config_D0045F8C
-    .config_D0045EB8 : {
-      KEEP(*(.config_D0045EB8))
-    } > config_D0045EB8
-    .config_D0045F90 : {
-      KEEP(*(.config_D0045F90))
-    } > config_D0045F90
-    .config_D0045EBC : {
-      KEEP(*(.config_D0045EBC))
-    } > config_D0045EBC
-    .config_D0045F94 : {
-      KEEP(*(.config_D0045F94))
-    } > config_D0045F94
 
     /*
      * The linker moves the .vectors section into itcm when itcm is
@@ -308,6 +220,7 @@ SECTIONS
     . = ALIGN(4);
     _etext = .;
 
+
     /*
      *  Align here to ensure that the .bss section occupies space up to
      *  _end.  Align after .bss to ensure correct alignment even if the
@@ -334,5 +247,10 @@ SECTIONS
     _end = . ;
     _ram_end_ = ORIGIN(ram) + LENGTH(ram) -1 ;
     
+    .bkupram_bss :
+    {
+        *(.bkupram_bss .bkupram_bss.*)
+        *(.pbss .pbss.*)
+    } > bkupram
 }
 

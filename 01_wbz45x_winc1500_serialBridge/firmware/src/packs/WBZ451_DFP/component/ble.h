@@ -1,7 +1,7 @@
-/**
- * \brief Component description for BLE
+/*
+ * Component description for BLE
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* file generated from device description version 2021-05-04T23:48:40Z */
+/* file generated from device description version 2022-02-28T16:51:20Z */
 #ifndef _BZ45_BLE_COMPONENT_H_
 #define _BZ45_BLE_COMPONENT_H_
 
@@ -29,22 +29,22 @@
 /* ************************************************************************** */
 
 /* -------- BLE_DPLL_RG1 : (BLE Offset: 0x4B8) (R/W 16)  -------- */
-#define BLE_DPLL_RG1_DPLL_RG1BITS_Pos         _U_(0)                                               /**< (BLE_DPLL_RG1)  Position */
-#define BLE_DPLL_RG1_DPLL_RG1BITS_Msk         (_U_(0xFFFF) << BLE_DPLL_RG1_DPLL_RG1BITS_Pos)       /**< (BLE_DPLL_RG1)  Mask */
-#define BLE_DPLL_RG1_DPLL_RG1BITS(value)      (BLE_DPLL_RG1_DPLL_RG1BITS_Msk & ((value) << BLE_DPLL_RG1_DPLL_RG1BITS_Pos))
-#define BLE_DPLL_RG1_Msk                      _U_(0xFFFF)                                          /**< (BLE_DPLL_RG1) Register Mask  */
+#define BLE_DPLL_RG1_DPLL_RG1BITS_Pos         _UINT16_(0)                                          /* (BLE_DPLL_RG1)  Position */
+#define BLE_DPLL_RG1_DPLL_RG1BITS_Msk         (_UINT16_(0xFFFF) << BLE_DPLL_RG1_DPLL_RG1BITS_Pos)  /* (BLE_DPLL_RG1)  Mask */
+#define BLE_DPLL_RG1_DPLL_RG1BITS(value)      (BLE_DPLL_RG1_DPLL_RG1BITS_Msk & (_UINT16_(value) << BLE_DPLL_RG1_DPLL_RG1BITS_Pos)) /* Assigment of value for DPLL_RG1BITS in the BLE_DPLL_RG1 register */
+#define BLE_DPLL_RG1_Msk                      _UINT16_(0xFFFF)                                     /* (BLE_DPLL_RG1) Register Mask  */
 
 
 /* -------- BLE_DPLL_RG2 : (BLE Offset: 0x4BA) (R/W 16)  -------- */
-#define BLE_DPLL_RG2_DPLL_RG2BITS_Pos         _U_(0)                                               /**< (BLE_DPLL_RG2)  Position */
-#define BLE_DPLL_RG2_DPLL_RG2BITS_Msk         (_U_(0xFFFF) << BLE_DPLL_RG2_DPLL_RG2BITS_Pos)       /**< (BLE_DPLL_RG2)  Mask */
-#define BLE_DPLL_RG2_DPLL_RG2BITS(value)      (BLE_DPLL_RG2_DPLL_RG2BITS_Msk & ((value) << BLE_DPLL_RG2_DPLL_RG2BITS_Pos))
-#define BLE_DPLL_RG2_Msk                      _U_(0xFFFF)                                          /**< (BLE_DPLL_RG2) Register Mask  */
+#define BLE_DPLL_RG2_DPLL_RG2BITS_Pos         _UINT16_(0)                                          /* (BLE_DPLL_RG2)  Position */
+#define BLE_DPLL_RG2_DPLL_RG2BITS_Msk         (_UINT16_(0xFFFF) << BLE_DPLL_RG2_DPLL_RG2BITS_Pos)  /* (BLE_DPLL_RG2)  Mask */
+#define BLE_DPLL_RG2_DPLL_RG2BITS(value)      (BLE_DPLL_RG2_DPLL_RG2BITS_Msk & (_UINT16_(value) << BLE_DPLL_RG2_DPLL_RG2BITS_Pos)) /* Assigment of value for DPLL_RG2BITS in the BLE_DPLL_RG2 register */
+#define BLE_DPLL_RG2_Msk                      _UINT16_(0xFFFF)                                     /* (BLE_DPLL_RG2) Register Mask  */
 
 
 /** \brief BLE register offsets definitions */
-#define BLE_DPLL_RG1_REG_OFST          (0x4B8)             /**< (BLE_DPLL_RG1)  Offset */
-#define BLE_DPLL_RG2_REG_OFST          (0x4BA)             /**< (BLE_DPLL_RG2)  Offset */
+#define BLE_DPLL_RG1_REG_OFST          _UINT32_(0x4B8)     /* (BLE_DPLL_RG1)  Offset */
+#define BLE_DPLL_RG2_REG_OFST          _UINT32_(0x4BA)     /* (BLE_DPLL_RG2)  Offset */
 
 #if !(defined(__ASSEMBLER__) || defined(__IAR_SYSTEMS_ASM__))
 /** \brief BLE register API structure */

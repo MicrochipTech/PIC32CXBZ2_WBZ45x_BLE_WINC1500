@@ -1,3 +1,4 @@
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
   MPLAB Harmony Application Source File
 
@@ -34,12 +35,12 @@
 #include "ble_dis/ble_dis.h"
 #include "wdrv_winc_client_api.h"
 
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Global Data Definitions
 // *****************************************************************************
 // *****************************************************************************
-
 
 // *****************************************************************************
 /* Application Data
@@ -55,6 +56,7 @@
 
     Application strings and buffers are be defined outside this structure.
 */
+
 APP_DATA appData;
 
 uint16_t conn_hdl;
@@ -83,10 +85,7 @@ extern void APP_ConnService_SendNotification(uint16_t connHandle, uint8_t char_v
 
 /* TODO:  Add any necessary local functions.
 */
-//void vApplicationDaemonTaskStartupHook( void )
-//{
 
-//}
 
 // *****************************************************************************
 // *****************************************************************************
@@ -124,7 +123,6 @@ static void _APP_ConnectNotifyCallback(DRV_HANDLE handle, WDRV_WINC_ASSOC_HANDLE
 
 void APP_Initialize ( void )
 {
-   
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT;
 
@@ -151,11 +149,11 @@ void APP_Tasks ( void )
     APP_Msg_T    appMsg[1];
     APP_Msg_T   *p_appMsg;
     p_appMsg=appMsg;
+
     /* Check the application's current state. */
     switch ( appData.state )
     {
         /* Application's initial state. */
-
         case APP_STATE_INIT:
         {
             bool appInitialized = true;
@@ -177,9 +175,10 @@ void APP_Tasks ( void )
             }
             break;
         }
+
         case APP_STATE_SERVICE_TASKS:
         {
-            if (OSAL_QUEUE_Receive(&appData.appQueue, &appMsg, OSAL_WAIT_FOREVER)) //OSAL_WAIT_FOREVER
+            if (OSAL_QUEUE_Receive(&appData.appQueue, &appMsg, OSAL_WAIT_FOREVER))
             {
                 if(p_appMsg->msgId==APP_MSG_BLE_STACK_EVT)
                 {

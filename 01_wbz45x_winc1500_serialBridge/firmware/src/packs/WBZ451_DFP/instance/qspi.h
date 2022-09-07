@@ -1,7 +1,7 @@
-/**
- * \brief Instance header file for WBZ451
+/*
+ * Instance header file for WBZ451
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,16 +20,16 @@
  *
  */
 
-/* file generated from device description version 2021-05-04T23:48:40Z */
+/* file generated from device description version 2022-02-28T16:51:20Z */
 #ifndef _BZ45_QSPI_INSTANCE_
 #define _BZ45_QSPI_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for QSPI peripheral ========== */
-#define QSPI_DMAC_ID_RX                          _UL_(43)   
-#define QSPI_DMAC_ID_TX                          _UL_(44)   
-#define QSPI_HADDR_MSB                           _UL_(23)   
-#define QSPI_OCMS                                _UL_(1)    
-#define QSPI_INSTANCE_ID                         _UL_(64)   
+#define QSPI_DMAC_ID_RX                          (43)       
+#define QSPI_DMAC_ID_TX                          (44)       
+#define QSPI_HADDR_MSB                           (23)       
+#define QSPI_OCMS                                (1)        
+#define QSPI_INSTANCE_ID                         (64)       
 
 #endif /* _BZ45_QSPI_INSTANCE_ */

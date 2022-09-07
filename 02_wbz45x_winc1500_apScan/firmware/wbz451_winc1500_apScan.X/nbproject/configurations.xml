@@ -268,6 +268,8 @@
             <itemPath>../src/packs/WBZ451_DFP/component/aes.h</itemPath>
             <itemPath>../src/packs/WBZ451_DFP/component/rtc.h</itemPath>
             <itemPath>../src/packs/WBZ451_DFP/component/btzbsys.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/component/cru.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/component/hmatrixb.h</itemPath>
           </logicalFolder>
           <logicalFolder name="instance" displayName="instance" projectFiles="true">
             <itemPath>../src/packs/WBZ451_DFP/instance/tc1.h</itemPath>
@@ -313,6 +315,9 @@
             <itemPath>../src/packs/WBZ451_DFP/instance/nvm.h</itemPath>
             <itemPath>../src/packs/WBZ451_DFP/instance/trng.h</itemPath>
             <itemPath>../src/packs/WBZ451_DFP/instance/gpioa.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/instance/aes.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/instance/tcc0.h</itemPath>
+            <itemPath>../src/packs/WBZ451_DFP/instance/tcc1.h</itemPath>
           </logicalFolder>
           <logicalFolder name="pio" displayName="pio" projectFiles="true">
             <itemPath>../src/packs/WBZ451_DFP/pio/wbz451.h</itemPath>
@@ -552,7 +557,6 @@
       <C32>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="enable-app-io" value="false"/>
         <property key="enable-omit-frame-pointer" value="false"/>
         <property key="enable-symbols" value="true"/>
@@ -610,7 +614,6 @@
         <property key="additional-options-use-response-files" value="false"/>
         <property key="additional-options-write-sla" value="false"/>
         <property key="allocate-dinit" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="code-dinit" value="false"/>
         <property key="ebase-addr" value=""/>
         <property key="enable-check-sections" value="false"/>
@@ -650,7 +653,6 @@
       <C32CPP>
         <property key="additional-warnings" value="false"/>
         <property key="addresss-attribute-use" value="false"/>
-        <property key="appendMe" value=""/>
         <property key="check-new" value="false"/>
         <property key="eh-specs" value="true"/>
         <property key="enable-app-io" value="false"/>
@@ -679,7 +681,6 @@
         <property key="use-indirect-calls" value="false"/>
       </C32CPP>
       <C32Global>
-        <property key="appendMe" value=""/>
         <property key="common-include-directories" value=""/>
         <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>
@@ -721,6 +722,8 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1000000-10fffff"/>
+        <property key="programmerToGoFilePath"
+                  value="D:/del/PIC32CXBZ2_WBZ45x_BLE_WINC1500/02_wbz45x_winc1500_apScan/firmware/wbz451_winc1500_apScan.X/debug/default/wbz451_winc1500_apScan_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

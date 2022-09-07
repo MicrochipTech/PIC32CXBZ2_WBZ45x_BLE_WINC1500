@@ -1,7 +1,7 @@
-/**
- * \brief Instance header file for WBZ451
+/*
+ * Instance header file for WBZ451
  *
- * Copyright (c) 2021 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,52 +20,52 @@
  *
  */
 
-/* file generated from device description version 2021-05-04T23:48:40Z */
+/* file generated from device description version 2022-02-28T16:51:20Z */
 #ifndef _BZ45_SERCOM1_INSTANCE_
 #define _BZ45_SERCOM1_INSTANCE_
 
 
 /* ========== Instance Parameter definitions for SERCOM1 peripheral ========== */
-#define SERCOM1_CLK_REDUCTION                    _UL_(1)    
-#define SERCOM1_DLY_COMPENSATION                 _UL_(1)    
-#define SERCOM1_DMA                              _UL_(1)    
-#define SERCOM1_DMAC_ID_RX                       _UL_(6)    
-#define SERCOM1_DMAC_ID_TX                       _UL_(7)    
-#define SERCOM1_FIFO_DEPTH_POWER                 _UL_(1)    
-#define SERCOM1_GCLK_ID_CORE                     _UL_(3)    
-#define SERCOM1_INT_MSB                          _UL_(6)    
-#define SERCOM1_PMSB                             _UL_(3)    
-#define SERCOM1_RETENTION_SUPPORT                _UL_(0)    
-#define SERCOM1_SE_CNT                           _UL_(1)    
-#define SERCOM1_SPI                              _UL_(1)    
-#define SERCOM1_SPI_HW_SS_CTRL                   _UL_(1)    
-#define SERCOM1_SPI_ICSPACE_EXT                  _UL_(1)    
-#define SERCOM1_SPI_OZMO                         _UL_(0)    
-#define SERCOM1_SPI_WAKE_ON_SSL                  _UL_(1)    
-#define SERCOM1_TTBIT_EXTENSION                  _UL_(1)    
-#define SERCOM1_TWIM                             _UL_(1)    
-#define SERCOM1_TWIS                             _UL_(1)    
-#define SERCOM1_TWIS_AUTO_ACK                    _UL_(1)    
-#define SERCOM1_TWIS_GROUP_CMD                   _UL_(1)    
-#define SERCOM1_TWIS_SDASETUP_CNT_SIZE           _UL_(8)    
-#define SERCOM1_TWIS_SDASETUP_SIZE               _UL_(4)    
-#define SERCOM1_TWIS_SUDAT                       _UL_(1)    
-#define SERCOM1_TWI_FASTMP                       _UL_(1)    
-#define SERCOM1_TWI_HSMODE                       _UL_(1)    
-#define SERCOM1_TWI_SCLSM_MODE                   _UL_(1)    
-#define SERCOM1_TWI_SMB_TIMEOUTS                 _UL_(1)    
-#define SERCOM1_TWI_TENBIT_ADR                   _UL_(1)    
-#define SERCOM1_USART                            _UL_(1)    
-#define SERCOM1_USART_AUTOBAUD                   _UL_(1)    
-#define SERCOM1_USART_COLDET                     _UL_(1)    
-#define SERCOM1_USART_FLOW_CTRL                  _UL_(1)    
-#define SERCOM1_USART_FRAC_BAUD                  _UL_(1)    
-#define SERCOM1_USART_IRDA                       _UL_(1)    
-#define SERCOM1_USART_ISO7816                    _UL_(1)    
-#define SERCOM1_USART_LIN_MASTER                 _UL_(1)    
-#define SERCOM1_USART_RS485                      _UL_(1)    
-#define SERCOM1_USART_SAMPA_EXT                  _UL_(1)    
-#define SERCOM1_USART_SAMPR_EXT                  _UL_(1)    
-#define SERCOM1_INSTANCE_ID                      _UL_(4)    
+#define SERCOM1_CLK_REDUCTION                    (1)        
+#define SERCOM1_DLY_COMPENSATION                 (1)        
+#define SERCOM1_DMA                              (1)        
+#define SERCOM1_DMAC_ID_RX                       (6)        
+#define SERCOM1_DMAC_ID_TX                       (7)        
+#define SERCOM1_FIFO_DEPTH_POWER                 (1)        
+#define SERCOM1_GCLK_ID_CORE                     (3)        
+#define SERCOM1_INT_MSB                          (6)        
+#define SERCOM1_PMSB                             (3)        
+#define SERCOM1_RETENTION_SUPPORT                (0)        
+#define SERCOM1_SE_CNT                           (1)        
+#define SERCOM1_SPI                              (1)        
+#define SERCOM1_SPI_HW_SS_CTRL                   (1)        
+#define SERCOM1_SPI_ICSPACE_EXT                  (1)        
+#define SERCOM1_SPI_OZMO                         (0)        
+#define SERCOM1_SPI_WAKE_ON_SSL                  (1)        
+#define SERCOM1_TTBIT_EXTENSION                  (1)        
+#define SERCOM1_TWIM                             (1)        
+#define SERCOM1_TWIS                             (1)        
+#define SERCOM1_TWIS_AUTO_ACK                    (1)        
+#define SERCOM1_TWIS_GROUP_CMD                   (1)        
+#define SERCOM1_TWIS_SDASETUP_CNT_SIZE           (8)        
+#define SERCOM1_TWIS_SDASETUP_SIZE               (4)        
+#define SERCOM1_TWIS_SUDAT                       (1)        
+#define SERCOM1_TWI_FASTMP                       (1)        
+#define SERCOM1_TWI_HSMODE                       (1)        
+#define SERCOM1_TWI_SCLSM_MODE                   (1)        
+#define SERCOM1_TWI_SMB_TIMEOUTS                 (1)        
+#define SERCOM1_TWI_TENBIT_ADR                   (1)        
+#define SERCOM1_USART                            (1)        
+#define SERCOM1_USART_AUTOBAUD                   (1)        
+#define SERCOM1_USART_COLDET                     (1)        
+#define SERCOM1_USART_FLOW_CTRL                  (1)        
+#define SERCOM1_USART_FRAC_BAUD                  (1)        
+#define SERCOM1_USART_IRDA                       (1)        
+#define SERCOM1_USART_ISO7816                    (1)        
+#define SERCOM1_USART_LIN_MASTER                 (1)        
+#define SERCOM1_USART_RS485                      (1)        
+#define SERCOM1_USART_SAMPA_EXT                  (1)        
+#define SERCOM1_USART_SAMPR_EXT                  (1)        
+#define SERCOM1_INSTANCE_ID                      (4)        
 
 #endif /* _BZ45_SERCOM1_INSTANCE_ */

@@ -28,7 +28,7 @@ This package explains how to interface a WINC1500 device to a WBZ45x module so t
 ![wbz451_curiosity](docs/210819-WSG-PHOTO-EV96B94A-Front-Transparent.jpg)
 
 
-## A la carte
+## Contents
 
 1. <font size="6">[Serial Bridge Application to update WINC1500 Firmware](01_wbz45x_winc1500_serialBridge#top)</font>
    1. [Introduction](01_wbz45x_winc1500_serialBridge/README.md#step1)
