@@ -36,7 +36,7 @@ This example demonstrates the use of the ATWINC15x0 with the WBZ451 Curiosity bo
 
 |**Tools**|**Quantity**|
 | :- | :- |
-|[WBZ451 Curiosity Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/EA71C53A)|1|
+|[WBZ451 Curiosity Evaluation Kit (Rev 3)](https://www.microchip.com/en-us/development-tool/EV96B94A)|1|
 |[WINC1500 Xplained Pro](https://www.microchip.com/en-us/product/ATWINC1500)|1|
 |[XPRO-ADAPTER  Click](https://www.mikroe.com/xpro-adapter-click)|1|
 
