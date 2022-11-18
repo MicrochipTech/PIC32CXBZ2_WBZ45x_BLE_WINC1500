@@ -2,7 +2,7 @@
 <img src="docs/IoT-Made-Easy-Logo.png" width=100>
 
 
-> "Wireless Made Easy!" - This example demonstrates the firmware update of the ATWINC15x0 with the WBZ451 Curiosity board
+> "IOT Made Easy!" - This example demonstrates the firmware update of the ATWINC15x0 with the WBZ451 Curiosity board
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
 Features: **| BLE | Wi-Fi |**

@@ -2,7 +2,7 @@
 <img src="docs/IoT-Made-Easy-Logo.png" width=100>
 
 
-> "Wireless Made Easy!" - This example demonstrates the use of the ATWINC15x0 with the WBZ451 Curiosity board to explain how to scan for an AP when running as a station
+> "IOT Made Easy!" - This example demonstrates the use of the ATWINC15x0 with the WBZ451 Curiosity board to explain how to scan for an AP when running as a station
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
 Features: **| BLE | Wi-Fi |**

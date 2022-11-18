@@ -2,7 +2,7 @@
 <img src="docs/IoT-Made-Easy-Logo.png" width=100>
 
 
-> "Wireless Made Easy!" - These example applications add Wi-Fi connectivity to a BLE+15.4 capable device
+> "IOT Made Easy!" - These example applications add Wi-Fi connectivity to a BLE+15.4 capable device
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
 Features: **| BLE | Wi-Fi |**

@@ -2,7 +2,7 @@
 <img src="docs/images/IoT-Made-Easy-Logo.png" width=100>
 
 
-> "Wireless Made Easy!" - This example demonstrates how a user run a MQTTT Client using Third Party Paho software on WINC1500 device using WBZ451 Curiosity board as a host
+> "IOT Made Easy!" - This example demonstrates how a user run a MQTTT Client using Third Party Paho software on WINC1500 device using WBZ451 Curiosity board as a host
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
 Features: **| BLE | Wi-Fi |**
