@@ -1,8 +1,8 @@
-# PIC32CXBZ2_WBZ45x_BLE_WINC1500
+# PIC32CXBZ2_WBZ45x BLE WINC1500
 <img src="docs/IoT-Made-Easy-Logo.png" width=100>
 
 
-> "IOT Made Easy!" - These example applications add Wi-Fi connectivity to a BLE+15.4 capable device
+> "IoT Made Easy!" - These example applications add Wi-Fi connectivity to a BLE+15.4 capable device
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
 Features: **| BLE | Wi-Fi |**

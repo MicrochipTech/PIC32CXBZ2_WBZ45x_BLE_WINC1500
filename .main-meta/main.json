@@ -5,9 +5,9 @@
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mplabx.project.PIC32CXBZ2_WBZ45x_BLE_WINC1500",
         "version": "1.0.0",
-        "displayName": "PIC32CXBZ2_WBZ45x_BLE_WINC1500",
+        "displayName": "PIC32CXBZ2_WBZ45x BLE WINC1500",
         "projectName": "PIC32CXBZ2_WBZ45x_BLE_WINC1500",
-        "shortDescription": "These example applications add Wi-Fi connectivity using WINC1500 to WBZ451 Host, a BLE+15.4 capable device",
+        "shortDescription": "IoT Made Easy!-These example applications add Wi-Fi connectivity using WINC1500 to WBZ451 Host, a BLE+15.4 capable device",
         "ide": {
             "name": "MPLAB X",
             "semverRange": ">=6.00"
